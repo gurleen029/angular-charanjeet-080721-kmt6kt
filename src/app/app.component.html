@@ -1,4 +1,43 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div class="container">
+
+  <div class="col-md-4">
+    <b>Custom Search Example</b>
+  </div>
+  <div class="form-group col-md-4">
+    <input type="text" class="form-control"  placeholder="Enter Keyword for filter result" [(ngModel)]="searchedKeyword">
+  </div>
+
+  <table class="datatable">
+    <thead>
+      <tr>
+        <th><input type="checkbox"></th>
+        <th>Male </th>
+        <th><input type="checkbox"></th>
+        <th>Female</th>
+      </tr>
+    </thead>
+
+  </table>
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>gender</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let candidate of candidates | filter:searchedKeyword">
+        <td>{{ candidate.id }}</td>
+        <td>{{ candidate.first_name }}</td>
+        <td>{{ candidate.last_name }}</td>
+        <td>{{ candidate.email }}</td>
+        <td>{{ candidate.gender }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
